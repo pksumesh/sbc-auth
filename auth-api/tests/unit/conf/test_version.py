@@ -16,10 +16,13 @@
 
 Test-Suite to ensure that the version utilities are working as expected.
 """
+from tests import skip_in_pod
+
 from auth_api import utils
 from auth_api.version import __version__
 
 
+@skip_in_pod
 def test_get_version():
     """Assert thatThe version is returned correctly."""
     rv = utils.run_version.get_run_version()

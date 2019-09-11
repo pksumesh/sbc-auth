@@ -2,5 +2,13 @@
   "message": "hello i18n !!",
   "loginFailedMessage": "Incorrect Incorporation Number or Passcode",
   "techSupportPhone": "250 952-0568",
-  "techSupportEmail": "SBC_ITOperationsSupport@gov.bc.ca"
+  "techSupportEmail": "SBC_ITOperationsSupport@gov.bc.ca",
+  "payFailedMessage": "Payment Failed due to technical reasons. Please try again.",
+  "payFailedMessagePayBcDown": "Payment Failed due to technical reasons. Please use the below contacts.",
+  "payNoParams": "Incorrect configuration",
+  "paymentPrepareMsg": "Preparing your payments",
+  "paymentDoneMsg": "Completing the payment",
+  "businessContactCopy": "It looks like we are missing some contact information for your {businessType}. You will need to supply us with a few additional details before you can get started...",
+  "businessListEmptyMessage":"You have not added any businesses",
+  "businessListActionMessage":"Click Here to add a business by incorporation number and passcode"
 }

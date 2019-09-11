@@ -18,8 +18,11 @@ from sqlalchemy import event, text
 from sqlalchemy.schema import DropConstraint, MetaData
 
 from auth_api import create_app
-from auth_api import jwt as _jwt
+from auth_api.jwt_wrapper import JWTWrapper
 from auth_api.models import db as _db
+
+
+_JWT = JWTWrapper.get_instance()
 
 
 @pytest.fixture(scope='session')
@@ -47,7 +50,7 @@ def client(app):  # pylint: disable=redefined-outer-name
 @pytest.fixture(scope='session')
 def jwt():
     """Return a session-wide jwt manager."""
-    return _jwt
+    return _JWT
 
 
 @pytest.fixture(scope='session')
@@ -64,6 +67,20 @@ def db(app):  # pylint: disable=redefined-outer-name, invalid-name
     Drops all existing tables - Meta follows Postgres FKs
     """
     with app.app_context():
+        # clear all custom views
+        views_sql = """select table_name from INFORMATION_SCHEMA.views 
+                    WHERE table_schema = ANY (current_schemas(false))
+
+                    """
+        sess = _db.session()
+        for view in [name for (name,) in sess.execute(text(views_sql))]:
+            try:
+                sess.execute(text('DROP VIEW public.%s ;' % view))
+                print('DROP VIEW public.%s ' % view)
+            except Exception as err:  # pylint: disable=broad-except
+                print(f'Error: {err}')
+        sess.commit()
+
         # Clear out any existing tables
         metadata = MetaData(_db.engine)
         metadata.reflect()

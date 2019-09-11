@@ -13,7 +13,7 @@ module.exports = {
     '^.+\\.tsx?$': 'ts-jest'
   },
   transformIgnorePatterns: [
-    '/node_modules/'
+    '/node_modules/(?!sbc-common-components/.*)'
   ],
   'collectCoverage': true,
   'collectCoverageFrom': ['**/*.{js,vue}', '!**/node_modules/**'],
@@ -24,6 +24,7 @@ module.exports = {
   snapshotSerializers: [
     'jest-serializer-vue'
   ],
+  'setupFiles': ['jest-localstorage-mock'],
   testMatch: [
     '**/tests/unit/**/*.spec.(js|jsx|ts|tsx)|**/__tests__/*.(js|jsx|ts|tsx)'
   ],

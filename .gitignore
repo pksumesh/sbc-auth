@@ -45,6 +45,7 @@ coverage.xml
 *.cover
 .hypothesis/
 .pytest_cache/
+pytest.xml
 
 # Translations
 *.mo
@@ -106,10 +107,14 @@ node_modules/
 # vscode
 .vscode/
 *.code-workspace
+.history/
 
 # pycharm
 .idea/
 
 # npm
 package-lock.json
+
+# Mac OS
+.DS_Store
 

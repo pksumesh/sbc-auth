@@ -1,0 +1,111 @@
+{
+    "definitions": {},
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://bcrs.gov.bc.ca/.well_known/schemas/contact",
+    "type": "object",
+    "title": "Contact",
+    "additionalProperties": false,
+    "properties": {
+      "street": {
+        "$id": "#/properties/street",
+        "type": "string",
+        "title": "Street",
+        "default": "",
+        "examples": [
+          "123 Roundabout Lane"
+        ],
+        "pattern": "^(.*)$"
+      },
+      "streetAdditional": {
+        "$id": "#/properties/street_additional",
+        "type": "string",
+        "title": "Street Additional",
+        "default": "",
+        "examples": [
+          "Unit 1"
+        ],
+        "pattern": "^(.*)$"
+      },
+      "city": {
+        "$id": "#/properties/city",
+        "type": "string",
+        "title": "City",
+        "default": "",
+        "examples": [
+          "Victoria"
+        ],
+        "pattern": "^(.*)$"
+      },
+      "region": {
+        "$id": "#/properties/region",
+        "type": "string",
+        "title": "Region",
+        "default": "",
+        "examples": [
+          "British Columbia"
+        ],
+        "pattern": "^(.*)$"
+      },
+      "country": {
+        "$id": "#/properties/country",
+        "type": "string",
+        "title": "Country",
+        "default": "",
+        "examples": [
+          "CA"
+        ],
+        "pattern": "^(.*)$"
+      },
+      "postalCode": {
+        "$id": "#/properties/postal_code",
+        "type": "string",
+        "title": "Postal Code",
+        "default": "",
+        "examples": [
+          "V1A 1A1"
+        ],
+        "pattern": "^(.*)$"
+      },
+      "deliveryInstructions": {
+        "$id": "#/properties/delivery_instructions",
+        "type": "string",
+        "title": "Delivery Instructions",
+        "default": "",
+        "examples": [
+          "Ring buzzer 123"
+        ],
+        "pattern": "^(.*)$"
+      },
+      "phone": {
+        "$id": "#/properties/phone",
+        "type": "string",
+        "title": "Phone",
+        "default": "",
+        "examples": [
+          "111-222-3333"
+        ],
+        "pattern": "^(.*)$"
+      },
+      "phoneExtension": {
+        "$id": "#/properties/phone_extension",
+        "type": "string",
+        "title": "Phone Extension",
+        "default": "",
+        "examples": [
+          "123"
+        ],
+        "pattern": "^(.*)$"
+      },
+      "email": {
+        "$id": "#/properties/email",
+        "type": "string",
+        "title": "Email",
+        "default": "",
+        "examples": [
+          "abc123@mail.com"
+        ],
+        "pattern": "^[a-z0-9]+(\\.[_a-z0-9]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,15})$"
+      }
+    }
+  }
+  
