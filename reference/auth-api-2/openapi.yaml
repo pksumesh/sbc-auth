@@ -133,8 +133,9 @@ paths:
             value: CP0000000
   /users:
     get:
-      summary: Your GET endpoint
-      tags: []
+      summary: Get Users
+      tags:
+        - authorization
       operationId: getUsers
       responses:
         '200':
@@ -149,20 +150,7 @@ paths:
                     id: '1'
                     name: test
                     email: test@test.com
-        '403':
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-              examples:
-                example-1:
-                  value:
-                    code: Insufficient roles
-                    message: You dont have sufficient roles to access this resource
       description: GET Users
-      security:
-        - API Key: []
       parameters:
         - schema:
             type: boolean
