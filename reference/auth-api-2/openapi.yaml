@@ -162,11 +162,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Org'
-              examples:
-                example-1:
-                  value:
-                    name: TEST
-                    orgType: GOV
+              examples: {}
       description: GET Orgs
 components:
   schemas:
