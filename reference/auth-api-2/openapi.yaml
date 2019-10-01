@@ -131,26 +131,18 @@ paths:
             value: CP0001237
           unauthorized:
             value: CP0000000
-  /users:
+  /orgs:
     get:
-      summary: Get Users
-      tags:
-        - authorization
-      operationId: getUsers
+      summary: GET USers
+      tags: []
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
-              examples: {}
-      description: GET Users
-      parameters:
-        - schema:
-            type: boolean
-          in: query
-          name: active
+                $ref: '#/components/schemas/Org'
+      description: GET USers
 components:
   schemas:
     ErrorResponse:
@@ -183,24 +175,19 @@ components:
             - OWNER
       required:
         - roles
-    User:
-      title: User
+    Org:
+      title: Org
       type: object
       properties:
         id:
           type: string
-          pattern: '^[0-9]'
         name:
           type: string
-        email:
-          type: string
-          pattern: "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$"
         type:
           type: string
           enum:
-            - EMPLOYEE
-            - OWNER
-            - DELEGATED
+            - INTERNAL
+            - GOV
   securitySchemes:
     API Key:
       name: API Key
