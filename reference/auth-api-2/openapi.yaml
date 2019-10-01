@@ -131,6 +131,42 @@ paths:
             value: CP0001237
           unauthorized:
             value: CP0000000
+  /users:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+              examples:
+                example-1:
+                  value:
+                    id: '1'
+                    name: test
+                    email: test@test.com
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                example-1:
+                  value:
+                    code: Insufficient roles
+                    message: You dont have sufficient roles to access this resource
+      description: GET Users
+      security:
+        - API Key: []
+      parameters:
+        - schema:
+            type: boolean
+          in: query
+          name: active
 components:
   schemas:
     ErrorResponse:
@@ -163,6 +199,16 @@ components:
             - OWNER
       required:
         - roles
+    User:
+      title: User
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        email:
+          type: string
   securitySchemes:
     API Key:
       name: API Key
