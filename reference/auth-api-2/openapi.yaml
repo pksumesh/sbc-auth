@@ -135,6 +135,7 @@ paths:
     get:
       summary: Your GET endpoint
       tags: []
+      operationId: getUsers
       responses:
         '200':
           description: OK
