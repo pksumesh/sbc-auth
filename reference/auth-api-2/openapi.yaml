@@ -151,6 +151,18 @@ paths:
             type: boolean
           in: query
           name: active
+  /orgs:
+    get:
+      summary: Orgs GET Endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Org'
+      description: GET Orgs
 components:
   schemas:
     ErrorResponse:
@@ -201,6 +213,17 @@ components:
             - EMPLOYEE
             - OWNER
             - DELEGATED
+    Org:
+      title: Org
+      type: object
+      properties:
+        name:
+          type: string
+        orgType:
+          type: string
+          enum:
+            - LAWFIRM
+            - GOV
   securitySchemes:
     API Key:
       name: API Key
