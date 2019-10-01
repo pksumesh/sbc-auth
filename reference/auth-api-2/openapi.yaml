@@ -189,10 +189,18 @@ components:
       properties:
         id:
           type: string
+          pattern: '^[0-9]'
         name:
           type: string
         email:
           type: string
+          pattern: "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$"
+        type:
+          type: string
+          enum:
+            - EMPLOYEE
+            - OWNER
+            - DELEGATED
   securitySchemes:
     API Key:
       name: API Key
